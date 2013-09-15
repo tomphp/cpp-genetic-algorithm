@@ -6,23 +6,23 @@
 using std::string;
 
 class Gene {
-    public:
-        enum Type { NUMBER, OPERATOR, NOOP };
+  public:
+    enum Type { NUMBER, OPERATOR, NOOP };
 
-        enum Operator { MULTIPLY = 10, DIVIDE = 11, ADD = 12, SUBTRACT = 13 };
+    enum Operator { MULTIPLY = 10, DIVIDE = 11, ADD = 12, SUBTRACT = 13 };
 
-        explicit Gene(const string code) { set_code(code); }
+    explicit Gene(const string code) { set_code(code); }
 
-        explicit Gene(const unsigned int value) : value_(value) {}
+    explicit Gene(const unsigned int value) : value_(value) {}
 
-        void set_code(const string code);
+    void set_code(const string code);
 
-        Gene::Type type() const;
+    Gene::Type type() const;
 
-        unsigned int value() const;
+    unsigned int value() const;
 
-    private:
-        unsigned int value_;
+  private:
+    unsigned int value_;
 };
 
 #endif  // _CPPGA_GENE_H_

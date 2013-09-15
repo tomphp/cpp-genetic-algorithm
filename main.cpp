@@ -5,42 +5,42 @@
 #include "./population.h"
 
 void display(Individual *individual) {
-    std::cout << "Formula : " << individual->formula() << std::endl;
-    std::cout << "Value   : " << individual->value() << std::endl;
-    std::cout << std::endl;
+  std::cout << "Formula : " << individual->formula() << std::endl;
+  std::cout << "Value   : " << individual->value() << std::endl;
+  std::cout << std::endl;
 }
 
 int main() {
-    srand(time(NULL));
+  srand(time(NULL));
 
-    int target;
+  int target;
 
-    std::cout << "Enter target number: ";
-    std::cin >> target;
+  std::cout << "Enter target number: ";
+  std::cin >> target;
 
-    auto executor = make_shared<Executor>();
+  auto executor = make_shared<Executor>();
 
-    auto current = make_shared<Population>(executor);
+  auto current = make_shared<Population>(executor);
 
-    auto generation = 0;
+  auto generation = 0;
 
-    while (target != current->fittest(target)->value()) {
-        auto i = current->fittest(target);
+  while (target != current->fittest(target)->value()) {
+    auto i = current->fittest(target);
 
-        std::cout << "GENERATION: " << ++generation << std::endl;
-        std::cout << "Fitness : " << i->fitness(target) << std::endl;
-        display(i.get());
+    std::cout << "GENERATION: " << ++generation << std::endl;
+    std::cout << "Fitness : " << i->fitness(target) << std::endl;
+    display(i.get());
 
-        auto new_population = make_shared<Population>(
-            executor,
-            current->offspring_sequences(target, Population::kSize));
+    auto new_population = make_shared<Population>(
+      executor,
+      current->offspring_sequences(target, Population::kSize));
 
-        current = new_population;
-    }
+    current = new_population;
+  }
 
-    auto winner = current->fittest(target);
+  auto winner = current->fittest(target);
 
-    std::cout << "SOLUTION: " << std::endl;
-    display(winner.get());
+  std::cout << "SOLUTION: " << std::endl;
+  display(winner.get());
 }
 

@@ -13,33 +13,33 @@ using std::make_shared;
 typedef vector<Sequence> Sequences;
 
 class Population {
-    public:
-        static const int kSize = 20;
+  public:
+    static const int kSize = 80;
 
-        explicit Population(const shared_ptr<Executor> executor);
+    explicit Population(const shared_ptr<Executor> executor);
 
-        Population(const shared_ptr<Executor> executor,
-                   const Sequences sequences);
+    Population(const shared_ptr<Executor> executor,
+               const Sequences sequences);
 
-        void create_population();
+    void create_population();
 
-        void create_population(const Sequences sequences);
+    void create_population(const Sequences sequences);
 
-        void initialize();
+    void initialize();
 
-        shared_ptr<Individual> fittest(const float target) const;
+    shared_ptr<Individual> fittest(const float target) const;
 
-        Sequences offspring_sequences(const float target,
-                                      const int count) const;
+    Sequences offspring_sequences(const float target,
+                                  const int count) const;
 
-    private:
-        void mutate(Sequence &sequence) const;
+  private:
+    void mutate(Sequence &sequence) const;
 
-        Sequence random_sequence(const float target) const;
+    Sequence random_sequence(const float target) const;
 
-        vector<shared_ptr<Individual>> members_;
+    vector<shared_ptr<Individual>> members_;
 
-        shared_ptr<Executor> executor_;
+    shared_ptr<Executor> executor_;
 };
 
 #endif  // _CPPGA_POPULATION_H_
