@@ -3,13 +3,13 @@
 #include "./population.h"
 
 Population::Population(const shared_ptr<Executor> executor)
-    : executor_(executor) {
+        : executor_(executor) {
     create_population();
 }
 
 Population::Population(
-    const shared_ptr<Executor> executor,
-    const Sequences sequences) : executor_(executor) {
+        const shared_ptr<Executor> executor,
+        const Sequences sequences) : executor_(executor) {
     create_population(sequences);
 }
 

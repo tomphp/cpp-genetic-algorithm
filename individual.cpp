@@ -10,8 +10,8 @@ Individual::Individual(
 }
 
 Individual::Individual(
-    const shared_ptr<Executor> executor,
-    const Sequence sequence) : executor_(executor) {
+        const shared_ptr<Executor> executor,
+        const Sequence sequence) : executor_(executor) {
     set_sequence(sequence);
 }
 
