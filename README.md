@@ -12,7 +12,7 @@ Since this in an exercise C++11, should any wandering C++ expert happen to find
 this and see things which could be done better then I'd be very greatful for
 any suggestions you have to offer.
 
-*IMPORTANT NOTE* The formulas are evaluated from left to right, not by
+**IMPORTANT NOTE** The formulas are evaluated from left to right, not by
 mathematical operator precidence.
 
 e.g. 2+3*4 = 20 rather than 14
